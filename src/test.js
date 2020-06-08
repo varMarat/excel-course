@@ -1,6 +1,2 @@
-console.log('chtoto')
+console.log('marat')
 
-async function start(){
-    await Promise.resolve()
-}
-start()
