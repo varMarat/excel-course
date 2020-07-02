@@ -14,14 +14,15 @@ const jsLoaders = () => {
         {
            loader: "babel-loader",
            options:{
-                presets: ['@babel/preset-env']
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-proposal-class-properties']
            }
     
         }
     ]
-    if(isDev){
-        loaders.push('eslint-loader')
-    }
+    // if(isDev){
+    //     loaders.push('eslint-loader')
+    // }
     return loaders
 }
 
@@ -44,7 +45,7 @@ module.exports = {
     devServer: {
         // contentBase: path.join(__dirname, 'dist'),
         // compress: true,
-        port: 3000,
+        port: 4000,
         hot: isDev
       },
     plugins: [
