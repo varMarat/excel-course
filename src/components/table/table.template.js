@@ -22,8 +22,15 @@ function createColumn(el, index){
         <div class="col-resize" data-resize="col"></div>
     </div>`
 }
-function createCell(col){
-    return `<div class="cell" data-col="${col}"></div>`
+function createCell(col, i){
+    return `<div 
+                class="cell" 
+                data-col="${col}" 
+                data-id="${i}:${col}"
+                data-type="cell"
+                contenteditable 
+                >
+            </div>`
 }
 
 export function createTable(countRow = 15){
@@ -40,14 +47,14 @@ export function createTable(countRow = 15){
     .join('')
     rows.push(createRow(column))
 
-    for(let i = 0; i<countRow; i++){
+    for(let row = 0; row<countRow; row++){
         const cell = new Array(colsCount)
         .fill('')
         .map((el, index) =>{
-            return el = createCell(index)
+            return el = createCell(index, row)
         })
         .join('')
-        rows.push(createRow(cell, i+1))
+        rows.push(createRow(cell, row+1))
     }
 
     return rows.join('')
